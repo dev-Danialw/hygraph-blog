@@ -8,10 +8,17 @@ import {
   Author,
   Comments,
   CommentsForm,
+  Loader,
 } from "../../components";
 import { getPosts, getPostDetails } from "../../services";
 
 const PostDetials = ({ post }) => {
+  const router = useRouter();
+
+  if (router.isFallback) {
+    return <Loader />;
+  }
+
   return (
     <>
       <div className="container mx-auto px-10 mb-8">
